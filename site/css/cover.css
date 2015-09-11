@@ -1,0 +1,210 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: orange;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,body {
+  height: 100%;
+
+  background-color: #000;
+
+  color: white;
+}
+
+div.site-wrapper {
+  background-color: rgba(0,0,0,.9);
+}
+
+h1, h3, h5 {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+h1 {
+  font-size: 600%;
+}
+
+dt, dd {
+  font-size: 200%;
+}
+
+h1, h3, h5, p.lead {
+  text-align: center;
+}
+
+.orange-text {
+  color: orange;
+  display: inline;
+}
+
+.red-text {
+  color: #7dc476;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize:vertical;
+}
+
+img.activity-thumbnail 
+{
+  display: block;
+  width: auto; 
+  height: auto; 
+  max-width: 100%; 
+  max-height: 100%;
+  /*padding-left: 10px;*/
+}
+
+.headline
+{
+  font-weight: normal;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.event {
+  position: relative;
+  padding: 10px;
+  height: 100%;
+}
+
+.col-lg-6 
+{
+  height: 100%;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 10px 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+}
+.mastfoot {
+  position: fixed;
+  bottom: 0;
+}
+/* Start the vertical centering */
+.site-wrapper-inner {
+  vertical-align: middle;
+}
+/* Handle the widths */
+.masthead,
+.mastfoot,
+.cover-container {
+  width: 100%; /* Must be percentage or pixels for horizontal alignment */
+}
+}
+
+div.artist {
+  margin-bottom: 10px; 
+}
+
+div.artist-header {
+  margin-left: 0px;
+  margin-right: 10px;
+  padding: 5px; 
+  min-height: 80px; 
+  width: 100%; 
+  overflow: hidden;
+  z-index: -1; 
+  border-style: none; 
+  border-radius: 15px; 
+}
+
+div.artist-text {
+  padding: 5px; 
+  margin: 0px 20px 0px 20px; 
+}
+
+div.event-text {
+  min-height: 150px;
+}
+
+.item-headline {
+  margin-top: 0px;
+  margin-bottom: 3px; 
+  text-transform: uppercase; 
+}
+
+@media (min-width: 992px) {
+  div.event {
+    margin-bottom: 10px;	  
+    margin-top: 10px;	  
+    border-style: solid;
+    border-width: 2px; 
+    border-color: orange;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+}
+
+div.site-wrapper {
+  background-color: transparent;
+}
+html, body {
+  background: url('/img/freedom_4958x3008.jpg') center center fixed; 
+  -webkit-background-size: cover; 
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+}
