@@ -6,6 +6,7 @@
             [secretary.core :as secretary :refer-macros [defroute]]
             [goog.events :as events]
             [unisuperdivest.index :as index]
+            [unisuperdivest.about :as about]
             [unisuperdivest.members :as members]
             [unisuperdivest.unions :as unions])
   (:require-macros [kioo.om :refer [defsnippet deftemplate]])
@@ -33,15 +34,16 @@
 (defn init [data] (om/component (unisuperdivest data)))
 
 
-(def app-state (atom {:current-page "members"
-                      :pages [(unions/page)
+(def app-state (atom {:current-page "about"
+                      :pages [(about/page)
+                              (unions/page)
                               (members/page)]}))
 
 (defroute "/:page" {:as params}
   (swap! app-state assoc :current-page (:page params)))
 
-(defroute "/" [] 
-  (secretary/dispatch! "/members"))
+(defroute "*" [] 
+  (secretary/dispatch! "about"))
 
 (let [h (History.)]
   (goog.events/listen h EventType.NAVIGATE #(secretary/dispatch! (.-token %)))

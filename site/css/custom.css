@@ -13,6 +13,8 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%; 
 }
 .image-inline {
+	width: 300px; 
+	height: auto;
 	margin: 20px; 
 }
 .navbar {

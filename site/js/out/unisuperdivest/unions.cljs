@@ -22,7 +22,7 @@
 
      [:h2.top-spacer "For members of the National Tertiary Education Union"]
      [:div.row
-      [:div.col-sm-12 [:div.col-sm-6.pull-right [:img.image-inline {:src "/img/unisuper_divest_transparent.png"}]]
+      [:div.col-sm-12 [:img.col-sm-6.pull-right.image-inline {:src "/img/unisuper_divest_transparent.png"}]
        [:p "In October 2014, the National Council Meeting of the NTEU endorsed the following resolution: "
         [:blockquote 
          [:h4 "UNISUPER INVESTMENTS AND AUSTRALIA’S DETENTION OF REFUGEES"]
