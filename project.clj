@@ -2,12 +2,15 @@
 
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
 
+  :eval-in :leiningen
+  
   :dependencies [[kioo "0.4.1"]
                  [org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.122"]
                  [org.omcljs/om "0.9.0"]
                  [secretary "1.2.3"]
                  [hiccups "0.3.0"]
+                 [leiningen "2.5.0"]
                  [org.clojure/data.json "0.2.6"]]
 
   :plugins [[lein-s3-static-deploy "0.1.0"]
