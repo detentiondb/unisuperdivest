@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5, h6 {
 .image-full-width {
 	width: 100%; 
 }
+.image-inline {
+	margin: 20px; 
+}
 .navbar {
 	border-radius: 0px; 
 	margin-bottom: 0px; 
@@ -36,6 +39,12 @@ body {
 h2 {
 	margin-top: 30px; 
 }
+h1, h2, h3, h4 {
+	margin-bottom: 15px; 
+}
+/*blockquote {
+	background-color: #eee;
+}*/
 ul li, ol li {
 	margin-bottom: 5px; 
 }

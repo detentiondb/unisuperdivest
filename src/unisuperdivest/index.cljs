@@ -1,26 +1,22 @@
 (ns unisuperdivest.index
-  (:require [unisuperdivest.util :as util]
+  (:require [unisuperdivest.util :as util :refer [link mailto tabulate]]
             [hiccups.runtime :as hiccupsrt :refer [h]])
   (:require-macros [hiccups.core :as hiccups :refer [html]]))
 
 
 (defn page []
-  (html [:h1 "Is your super with UniSuper?"]
-        [:p (h "Download a sample members letter to UniSuper ") (util/link "resources/sample_members_letter.odt" "here")]
-        [:p (h "Email your letter to the CEO Kevin O'Sullivan: " (util/mailto "unisuper.ceo@unisuper.com.au"))]))
-
-  
-
-;  Send copies to the members of the board:
-;  Independent Director Ian Martin: imartin@berkcap.com
-;  Employer representatives: 
-;  Professor Paul Johnson: paul.johnson@uwa.edu.au;
-;  Professor Jane den Hollander: vcoffice@deakin.edu.au;
-;  Stephen Somogyi: vpr@rmit.edu.au
-;
-;  And write to your employee representatives:
-;  Professor Michael Skully: Michael.Skully@monash.edu
-;  Keith Tull: keith.tull@rmit.edu.au
+  (html [:div [:h1 "Is your super with UniSuper?"]
+        [:p (h "Download a sample member’s letter to UniSuper ") (link "resources/sample_members_letter.odt" "here")]
+        [:p "Email your letter to the CEO Kevin O’Sullivan: " (mailto "unisuper.ceo@unisuper.com.au")]
+        [:p "Send copies to the members of the board:"]
+        [:table.table (tabulate
+                        [[[:b "Ian Martin"] "Independent Director" (mailto "imartin@berkcap.com")]
+                         [[:b "Professor Paul Johnson"] "Employer representative" (mailto "paul.johnson@uwa.edu.au")]
+                         [[:b "Professor Jane den Hollander"] "Employer representative" (mailto "vcoffice@deakin.edu.au")]
+                         [[:b "Stephen Somogyi"] "Employer representative" (mailto "vpr@rmit.edu.au")]
+                         ;  And write to your employee representatives:
+                         [[:b "Professor Michael Skully"] "Employee representative" (mailto "Michael.Skully@monash.edu")]
+                         [[:b "Keith Tull"] "Employee representative" (mailto "keith.tull@rmit.edu.au")]])]]))
 ;
 ;  Consultative Committees
 ;  Each University has employee representatives on UniSuper's Consultative Committee. Usually there are two: one professional and one academic staff member. These are your local colleagues whose role it is to represent you to UniSuper and are a great contact to talk to about divestment from the detention industry. For help finding out your Consultative Committee representatives please get in touch. 

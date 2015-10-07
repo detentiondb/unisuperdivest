@@ -3,33 +3,53 @@
             [kioo.core :refer [handle-wrapper]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            unisuperdivest.index)
-  (:require-macros [kioo.om :refer [defsnippet deftemplate]]))
-
-
-(defn unisuper-title [t] (str "UniSuper Divest | " t))
-
-(deftemplate unisuper-page "templates/main.html"
-  [data]
-  {[:.kioo-content] (do-> (html-content (:content data)))})
-
-;   [:.content] (do-> 
-;                 (lifecycle {:on-render (fn [this] (js/console.log "I have been updated"))})
-;                 (content (:content data)))
-;   [:div] (set-style :color "red")
-;   [:.what] (set-style :color "blue")})
-
-(defn init [state]
-  (let [data (first (:pages state))]
-    (set! (. js/document -title) (unisuper-title (:title data)))
-    (om/component (unisuper-page data))))
-
-(def app-state (atom {:pages [{:title "Home"
-                               :content (unisuperdivest.index/page)}]}))
-
-(om/root init app-state {:target  (.-body js/document)})
+            [secretary.core :as secretary :refer-macros [defroute]]
+            [goog.events :as events]
+            [unisuperdivest.index :as index]
+            [unisuperdivest.members :as members]
+            [unisuperdivest.unions :as unions])
+  (:require-macros [kioo.om :refer [defsnippet deftemplate]])
+  (:import goog.History
+           goog.history.EventType))
 
 (enable-console-print!)
 
-(println "Test!")
+(defn set-title [t] 
+  (set! (. js/document -title) (str "UniSuper Divest | " t)))
+
+(defsnippet tab "templates/main.html" [:.kioo-content]
+  [{:keys [title content]}]
+  {[:.kioo-content] (do->
+                      (lifecycle {:on-render (fn [this] (set-title title))})
+                      (html-content content))})
+
+(deftemplate unisuperdivest "templates/main.html"
+  [{:keys [current-page pages]}]
+  {[:.kioo-content] (do->
+                      (lifecycle {:on-render (fn [this] (println current-page))})
+                      (content (tab (first (filter #(= (:name %) current-page) pages)))))})
+
+
+(defn init [data] (om/component (unisuperdivest data)))
+
+
+(def app-state (atom {:current-page "members"
+                      :pages [(unions/page)
+                              (members/page)]}))
+
+(defroute "/:page" {:as params}
+  (swap! app-state assoc :current-page (:page params)))
+
+(defroute "/" [] 
+  (secretary/dispatch! "/members"))
+
+(let [h (History.)]
+  (goog.events/listen h EventType.NAVIGATE #(secretary/dispatch! (.-token %)))
+  (doto h
+    (.setEnabled true)))
+
+
+(om/root init app-state {:target  (.-body js/document)})
+
+
 

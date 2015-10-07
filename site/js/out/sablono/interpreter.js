@@ -3,6 +3,7 @@ goog.provide('sablono.interpreter');
 goog.require('cljs.core');
 goog.require('clojure.string');
 goog.require('sablono.util');
+goog.require('goog.object');
 
 /**
  * @interface
@@ -32,8 +33,8 @@ throw cljs.core.missing_protocol.call(null,"IInterpreter.interpret",this$);
 });
 
 sablono.interpreter.wrap_form_element = (function sablono$interpreter$wrap_form_element(ctor,display_name){
-return React.createClass({"getDisplayName": (function (){
-return display_name;
+return React.createFactory(React.createClass({"getDisplayName": (function (){
+return cljs.core.name.call(null,display_name);
 }), "getInitialState": (function (){
 var this$ = this;
 return {"value": (this$.props["value"])};
@@ -52,20 +53,47 @@ var this$ = this;
 return this$.setState({"value": (new_props["value"])});
 }), "render": (function (){
 var this$ = this;
-return this$.transferPropsTo(ctor.call(null,{"value": (this$.state["value"]), "onChange": (this$["onChange"]), "children": (this$.props["children"])}));
-})});
+var props = {};
+goog.object.extend(props,this$.props,{"value": (this$.state["value"]), "onChange": (this$["onChange"]), "children": (this$.props["children"])});
+
+return ctor.call(null,props);
+})}));
 });
 sablono.interpreter.input = sablono.interpreter.wrap_form_element.call(null,React.DOM.input,"input");
 sablono.interpreter.option = sablono.interpreter.wrap_form_element.call(null,React.DOM.option,"option");
 sablono.interpreter.textarea = sablono.interpreter.wrap_form_element.call(null,React.DOM.textarea,"textarea");
-sablono.interpreter.dom_fn = (function sablono$interpreter$dom_fn(tag){
-var temp__4423__auto__ = (React.DOM[cljs.core.name.call(null,tag)]);
-if(cljs.core.truth_(temp__4423__auto__)){
-var dom_fn__$1 = temp__4423__auto__;
-return cljs.core.get.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"input","input",556931961),sablono.interpreter.input,new cljs.core.Keyword(null,"option","option",65132272),sablono.interpreter.option,new cljs.core.Keyword(null,"textarea","textarea",-650375824),sablono.interpreter.textarea], null),cljs.core.keyword.call(null,tag),dom_fn__$1);
+sablono.interpreter.create_element = (function sablono$interpreter$create_element(var_args){
+var args__5628__auto__ = [];
+var len__5621__auto___12355 = arguments.length;
+var i__5622__auto___12356 = (0);
+while(true){
+if((i__5622__auto___12356 < len__5621__auto___12355)){
+args__5628__auto__.push((arguments[i__5622__auto___12356]));
+
+var G__12357 = (i__5622__auto___12356 + (1));
+i__5622__auto___12356 = G__12357;
+continue;
 } else {
-throw cljs.core.ex_info.call(null,[cljs.core.str("Unsupported HTML tag: "),cljs.core.str(cljs.core.name.call(null,tag))].join(''),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"tag","tag",-1290361223),tag], null));
 }
+break;
+}
+
+var argseq__5629__auto__ = ((((2) < args__5628__auto__.length))?(new cljs.core.IndexedSeq(args__5628__auto__.slice((2)),(0))):null);
+return sablono.interpreter.create_element.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),(arguments[(1)]),argseq__5629__auto__);
+});
+
+sablono.interpreter.create_element.cljs$core$IFn$_invoke$arity$variadic = (function (type,props,children){
+return (cljs.core.truth_(sablono.util.wrapped_type_QMARK_.call(null,type))?cljs.core.get.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"input","input",556931961),sablono.interpreter.input,new cljs.core.Keyword(null,"option","option",65132272),sablono.interpreter.option,new cljs.core.Keyword(null,"textarea","textarea",-650375824),sablono.interpreter.textarea], null),cljs.core.keyword.call(null,type)):cljs.core.partial.call(null,React.createElement,cljs.core.name.call(null,type))).call(null,props,(((cljs.core.sequential_QMARK_.call(null,children)) && (cljs.core._EQ_.call(null,(1),cljs.core.count.call(null,children))))?cljs.core.first.call(null,children):children));
+});
+
+sablono.interpreter.create_element.cljs$lang$maxFixedArity = (2);
+
+sablono.interpreter.create_element.cljs$lang$applyTo = (function (seq12352){
+var G__12353 = cljs.core.first.call(null,seq12352);
+var seq12352__$1 = cljs.core.next.call(null,seq12352);
+var G__12354 = cljs.core.first.call(null,seq12352__$1);
+var seq12352__$2 = cljs.core.next.call(null,seq12352__$1);
+return sablono.interpreter.create_element.cljs$core$IFn$_invoke$arity$variadic(G__12353,G__12354,seq12352__$2);
 });
 sablono.interpreter.attributes = (function sablono$interpreter$attributes(attrs){
 var attrs__$1 = cljs.core.clj__GT_js.call(null,sablono.util.html_to_dom_attrs.call(null,attrs));
@@ -83,19 +111,18 @@ return attrs__$1;
  * Render an element vector as a HTML element.
  */
 sablono.interpreter.element = (function sablono$interpreter$element(element__$1){
-var vec__11586 = sablono.util.normalize_element.call(null,element__$1);
-var tag = cljs.core.nth.call(null,vec__11586,(0),null);
-var attrs = cljs.core.nth.call(null,vec__11586,(1),null);
-var content = cljs.core.nth.call(null,vec__11586,(2),null);
-var f = sablono.interpreter.dom_fn.call(null,tag);
+var vec__12359 = sablono.util.normalize_element.call(null,element__$1);
+var type = cljs.core.nth.call(null,vec__12359,(0),null);
+var attrs = cljs.core.nth.call(null,vec__12359,(1),null);
+var content = cljs.core.nth.call(null,vec__12359,(2),null);
 var js_attrs = sablono.interpreter.attributes.call(null,attrs);
 if((cljs.core.sequential_QMARK_.call(null,content)) && (cljs.core._EQ_.call(null,(1),cljs.core.count.call(null,content)))){
-return f.call(null,js_attrs,sablono.interpreter.interpret.call(null,cljs.core.first.call(null,content)));
+return sablono.interpreter.create_element.call(null,type,js_attrs,sablono.interpreter.interpret.call(null,cljs.core.first.call(null,content)));
 } else {
 if(cljs.core.truth_(content)){
-return cljs.core.apply.call(null,f,js_attrs,sablono.interpreter.interpret.call(null,content));
+return sablono.interpreter.create_element.call(null,type,js_attrs,sablono.interpreter.interpret.call(null,content));
 } else {
-return f.call(null,js_attrs,null);
+return sablono.interpreter.create_element.call(null,type,js_attrs,null);
 
 }
 }
