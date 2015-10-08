@@ -2,7 +2,7 @@
 
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
 
-  #_(:eval-in :leiningen)
+  :eval-in :leiningen
   
   :dependencies [[kioo "0.4.1"]
                  [org.clojure/clojure "1.7.0"]
