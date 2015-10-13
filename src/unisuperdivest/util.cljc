@@ -1,8 +1,4 @@
-(ns unisuperdivest.util
-  (:require-macros [hiccups.core :as hiccups :refer [html]])
-  (:require [hiccups.runtime :as hiccupsrt]))
-
-(enable-console-print!)
+(ns unisuperdivest.util)
 
 (defn link [url text] [:a {:href url} text])
 

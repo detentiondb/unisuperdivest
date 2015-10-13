@@ -5,11 +5,12 @@
             [om.dom :as dom :include-macros true]
             [secretary.core :as secretary :refer-macros [defroute]]
             [goog.events :as events]
-            [unisuperdivest.index :as index]
+            [hiccups.runtime :as hiccupsrt :refer [h]]
             [unisuperdivest.about :as about]
             [unisuperdivest.members :as members]
             [unisuperdivest.unions :as unions])
-  (:require-macros [kioo.om :refer [defsnippet deftemplate]])
+  (:require-macros [kioo.om :refer [defsnippet deftemplate]]
+                   [hiccups.core :as hiccups :refer [html]])
   (:import goog.History
            goog.history.EventType))
 
@@ -21,8 +22,10 @@
 (defsnippet tab "templates/main.html" [:.kioo-content]
   [{:keys [title content]}]
   {[:.kioo-content] (do->
-                      (lifecycle {:on-render (fn [this] (set-title title))})
-                      (html-content content))})
+                      (lifecycle {:on-render 
+                                  (fn [this] 
+                                    (set-title title))})
+                      (html-content (html @content)))})
 
 (deftemplate unisuperdivest "templates/main.html"
   [{:keys [current-page pages]}]

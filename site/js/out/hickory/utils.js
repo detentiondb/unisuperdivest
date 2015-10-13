@@ -30,3 +30,5 @@ return cljs.core.keyword.call(null,clojure.string.lower_case.call(null,s));
 hickory.utils.render_doctype = (function hickory$utils$render_doctype(name,publicid,systemid){
 return [cljs.core.str("<!DOCTYPE "),cljs.core.str(name),cljs.core.str((cljs.core.truth_(cljs.core.not_empty.call(null,publicid))?[cljs.core.str(" PUBLIC \""),cljs.core.str(publicid),cljs.core.str("\"")].join(''):null)),cljs.core.str((cljs.core.truth_(cljs.core.not_empty.call(null,systemid))?[cljs.core.str(" \""),cljs.core.str(systemid),cljs.core.str("\"")].join(''):null)),cljs.core.str(">")].join('');
 });
+
+//# sourceMappingURL=utils.js.map
