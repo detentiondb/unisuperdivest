@@ -5,21 +5,23 @@
   {:name "unions"
    :title "Union Members"
    :content
-   [:div [:div
+   [:div 
+    [:div
      [:h2 "Are you a member of the NTEU or the CPSU?"]
-     [:p "Both the NTEU and the CPSU have a representative on the UniSuper Board. Members of these unions have the capacity
-         to influence investment decisions through the recommendations made by their union’s Board representative."]
+     [:p "Both the National Tertiary Education Union (NTEU) and the Community and Public Sector Union (CPSU) have a representative on the UniSuper Board. Members of these unions have the capacity
+         to influence the investment decisions of UniSuper through the recommendations made by their union’s Board representative."]
      [:h4.top-spacer "UNISUPER BOARD — UNION REPRESENTATIVES"]
      [:table.table (tabulate
                      [[[:b "Grahame McCulloch"] "NTEU General Secretary" "NTEU representative" (mailto "gmcculloch@nteu.org.au")]
                       [[:b "Neville Kitchin"] "CPSU SPSF Group South Australia Branch Assistant Secretary" "CPSU representative" (mailto "nev@cpsu.asn.au")]])]
-     [:p "The NTEU and the CPSU are able to pass motions that call on UniSuper to divest from Transfield Services, Decmil, Serco
-         and other detention contractors."]]
+     [:p "The NTEU and the CPSU are able to pass motions that call on UniSuper to divest from Transfield Services, Decmil, Serco 
+         and other detention contractors on a complete and permanent basis."]
+     [:p.well [:b "Please contact your Union representative today to call on them to urge UniSuper to divest!"]]]
 
-    [:h2.top-spacer "For members of the National Tertiary Education Union"]
+    [:h2.top-spacer "For members of the NTEU"]
     [:div.row
      [:div.col-sm-12 [:img.col-sm-6.pull-right.image-inline {:src "/img/unisuper_divest_transparent.png"}]
-      [:p "In October 2014, the National Council Meeting of the NTEU endorsed the following resolution: "
+      [:p {:id "statement"} "In October 2014, the National Council Meeting of the NTEU endorsed the following resolution: "
        [:blockquote 
         [:h4 "UNISUPER INVESTMENTS AND AUSTRALIA’S DETENTION OF REFUGEES"]
         [:p "Australia’s practice of the mandatory detention of refugees is wrong. Staff at Australian universities overwhelmingly 

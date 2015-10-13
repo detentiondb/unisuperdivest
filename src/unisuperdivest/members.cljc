@@ -7,7 +7,7 @@
    :content 
    [:div [:img.image-inline.pull-right {:src "/img/unisuper_divest_transparent.png"}]
     [:h1 "My super is with UniSuper—how can I take action?"]
-    [:p "The UniSuper Divest team believes a successful divestment campaign will achieve a step change in detention industry divestment: 
+    [:p "The UniSuper Divest team believes a successful divestment campaign will have an ongoing impact on the supply chains of the detention system: 
         not just through individual divestment, but through the collective action of fund members to urge UniSuper to divest from detention, and 
         to subsequently screen further investment decisions for connections to detention."]
 
@@ -22,17 +22,20 @@
       [:li "Email an edited version of this letter to " [:b "UniSuper CEO Kevin O’Sullivan"] ": " (mailto "unisuper.ceo@unisuper.com.au")]
       [:li "Send this letter, or your own letter, to the members of the UniSuper Board below"]]]
 
-    [:h4.top-spacer "UNISUPER BOARD"]
+    [:h4.top-spacer "UNISUPER BOARD " [:small "(as at October 2015)"]]
     [:table.table (tabulate
-                    [[[:b "Ian Martin"] "Independent Director" (mailto "imartin@berkcap.com")]
-                     [[:b "Professor Paul Johnson"] "Employer representative" (mailto "paul.johnson@uwa.edu.au")]
-                     [[:b "Professor Jane den Hollander"] "Employer representative" (mailto "vcoffice@deakin.edu.au")]
-                     [[:b "Stephen Somogyi"] "Employer representative" (mailto "vpr@rmit.edu.au")]
-                     ;  And write to your employee representatives:
+                    [
+                     [[:b "Chris Cuffe"] "Independent Director (Chairman)" (mailto "hello@australianphilanthropicservices.com.au")]
+                     [[:b "Ian Martin"] "Independent Director" (mailto "imartin@berkcap.com")]
+                     [[:b "Grahame McCulloch"] "NTEU representative" (mailto "gmcculloch@nteu.org.au")]
+                     [[:b "Neville Kitchin"] "CPSU representative" (mailto "nev@cpsu.asn.au")]
                      [[:b "Professor Michael Skully"] "Employee representative" (mailto "Michael.Skully@monash.edu")]
                      [[:b "Keith Tull"] "Employee representative" (mailto "keith.tull@rmit.edu.au")]
-                     [[:b "Grahame McCulloch"] "NTEU representative" (mailto "gmcculloch@nteu.org.au")]
-                     [[:b "Neville Kitchin"] "CPSU representative" (mailto "nev@cpsu.asn.au")]])]
+                     [[:b "Professor Paul Johnson"] "Employer representative" (mailto "paul.johnson@uwa.edu.au")]
+                     [[:b "Professor Jane den Hollander"] "Employer representative" (mailto "vc@deakin.edu.au")]
+                     [[:b "Stephen Somogyi"] "Employer representative" (mailto "vpr@rmit.edu.au")]
+                     [[:b "Dr Susan Gould"] "Employer representative" ""]
+                     ])]
 
     [:h2 "Contact your representative on the UniSuper Consultative Committee"]
     [:p "Each university has employee representatives on UniSuper’s Consultative Committee. An institution will usually have two: 
