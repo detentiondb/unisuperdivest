@@ -25,8 +25,8 @@
      (link "/resources/unisuper_briefing_sep_2015.pdf" "information package") 
      " to learn more about being part of the campaign."]
     [:h3.col-sm-6.pull-right.image-inline.well "See the sections of this site for " 
-     (link "#members" "UniSuper members") " and "
-     (link "#unions" "NTEU and CPSU members") " for more ways to take action."]
+     (link "members.html" "UniSuper members") " and "
+     (link "unions.html" "NTEU and CPSU members") " for more ways to take action."]
     [:p "Since March 2014, UniSuper members and other activists have been calling on UniSuper 
         to:"
      [:blockquote 
