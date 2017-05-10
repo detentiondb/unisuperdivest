@@ -38,9 +38,11 @@
                      ])]
 
     [:h2 "Contact your representative on the UniSuper Consultative Committee"]
-    [:p "Each university has employee representatives on UniSuper’s Consultative Committee. An institution will usually have two: 
-        one professional, and one academic staff member. These are your local colleagues with the task of representing your views 
-        to UniSuper. Let them know about your views on detention divestment."]
+    [:p "Each university has two employee representatives on UniSuper’s Consultative Committee (one for
+        academic staff and one for general staff), as well as two employer representatives. The employee 
+        representatives are your colleagues and one of their main tasks is to nominate the four employee 
+        Directors on the UniSuper Board. Let them know to communicate your views on detention divestment 
+        to the employee UniSuper Board Directors."]
     [:p "For help determining the Consultative Committee representatives at your institution, please " (mailto "unisuperdivest@gmail.com" "email") 
      " the UniSuper Divest team."]]}) 
 

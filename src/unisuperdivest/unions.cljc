@@ -7,7 +7,7 @@
    :content
    [:div 
     [:div
-     [:h2 "Are you a member of the NTEU or the CPSU?"]
+     [:h1 "Are you a member of the NTEU or the CPSU?"]
      [:p "Both the National Tertiary Education Union (NTEU) and the Community and Public Sector Union (CPSU) have a representative on the UniSuper Board. Members of these unions have the capacity
          to influence the investment decisions of UniSuper through the recommendations made by their union’s Board representative."]
      [:h4.top-spacer "UNISUPER BOARD — UNION REPRESENTATIVES"]

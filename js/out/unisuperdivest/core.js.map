@@ -1,0 +1,7 @@
+{"version":3,
+ "file":
+ "/Volumes/Space/personal/dev/unisuperdivest/./js/out/unisuperdivest/core.js",
+ "sources":["core.cljs"],
+ "lineCount":7,
+ "mappings":";AAAA;;AAEA,AAACA;AAED,4BAAA,5BAACC",
+ "names":["cljs.core/enable-console-print!", "cljs.core/println"]}
